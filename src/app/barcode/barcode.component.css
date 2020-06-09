@@ -8,7 +8,30 @@
   max-width:250px;
   padding:4rem;
   margin:0 auto;
+  background:#33333350;
 }
+.wrapper.scanning::after{
+  content: '';
+  position: absolute;
+  z-index: 999;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 5px;
+  background: #d46060;
+  animation: scanAnimation 2s infinite linear;
+}
+@keyframes scanAnimation{
+  0% {
+    top: 5%;
+  }
+  50% {
+    top: 95%;
+  }
+  100% {
+    top: 5%;
+  }
+} 
 #upper-left{
   position:absolute;
   top:var(--padding);;
@@ -40,7 +63,7 @@
 {
   content:'';
   position:absolute;
-  background:#333333;
+  background:#555555;
   z-index:556;
 }
 #upper-left::after,
@@ -90,29 +113,11 @@
   height:4rem;
   width:calc(100%/95);
 }
-.digit:nth-child(1),
-.digit:nth-child(2),
-.digit:nth-child(3),
-.digit:nth-child(4),
-.digit:nth-child(5),
-.digit:nth-child(6),
-.digit:nth-child(7),
-.digit:nth-child(8),
-.digit:nth-child(9),
-.digit:nth-child(10),
+.digit:nth-child(n+1):nth-child(-n+10),
 .digit:nth-child(47),
 .digit:nth-child(49),
-.digit:nth-child(85),
-.digit:nth-child(86),
-.digit:nth-child(87),
-.digit:nth-child(88),
-.digit:nth-child(89),
-.digit:nth-child(90),
-.digit:nth-child(91),
-.digit:nth-child(92),
-.digit:nth-child(93),
-.digit:nth-child(94),
-.digit:nth-child(95){
+.digit:nth-child(n+85):nth-child(-n+95)
+{
   height:4.5rem;
 
 }
@@ -120,5 +125,5 @@
   background:transparent;
 }
 .d-1{
-  background:black;
+  background:#FAFAFA;
 }
