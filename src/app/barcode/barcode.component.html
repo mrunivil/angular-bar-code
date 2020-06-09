@@ -2,4 +2,4 @@
   <div #digits [ngClass]="'d-' + digit" class="digit" *ngFor="let digit of barcode.toBinary()"></div>
   <div class="background" #progress></div>
 </div>
-<input type="range" min="0" max="100" [(ngModel)]="progress" (onNgModelChange)="onModelChange()"/>
+<input type="range" min="0" max="100" [(ngModel)]="progress" (ngModelChange)="onModelChange()"/>
