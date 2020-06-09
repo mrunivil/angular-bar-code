@@ -15,12 +15,16 @@ export class BarcodeComponent implements AfterViewInit {
   }
 
   onModelChange(){
-    const index = Math.floor(this.digits.length/100*this.progress);
-    this.digits.forEach((digit, i)=>{
+    const tmp = this.digits;
+    cont tmpP = this.progress;
+    window.requestAnimationFrame(()=>{
+ const index = Math.floor(tmp.length/100*tmpP);
+    tmp.forEach((digit, i)=>{
       const el:HTMLElement = digit.nativeElement;
       if(i < index && el.classList.contains('d-1')){
         el.style.background = '#C51718'
       }
+    })
     })
   }
 
