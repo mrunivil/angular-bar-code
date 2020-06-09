@@ -16,7 +16,7 @@ import { BarcodeModel } from "../barcode.model";
 })
 export class BarcodeComponent implements AfterViewInit {
   @ViewChildren("digits") digits: QueryList<ElementRef>;
-  progressValue = 35;
+  progressValue = 0;
   barcode: BarcodeModel;
   constructor() {
     this.barcode = new BarcodeModel();
@@ -31,6 +31,9 @@ export class BarcodeComponent implements AfterViewInit {
         const el: HTMLElement = digit.nativeElement;
         if (i < index && el.classList.contains("d-1")) {
           el.style.background = "#C51718";
+        }
+        if(i>= index && el.classList.contains('d-1')){
+          el.style.background = "#333333";
         }
       });
     });

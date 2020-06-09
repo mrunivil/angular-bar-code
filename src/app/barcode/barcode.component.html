@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div #digits [ngClass]="'d-' + digit" class="digit" *ngFor="let digit of barcode.toBinary()"></div>
 </div>
-<input type="range" min="0" max="100" [(ngModel)]="progressValue"/>
-{{progress}}
+<input type="range" min="0" max="100" [(ngModel)]="progressValue" (ngModelChange)="onModelChange()"/>
+{{progressValue}}
 <!-- <input type="range" min="0" max="100" [(ngModel)]="progress"  (ngModelChange)="onModelChange()"/> -->
