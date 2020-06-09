@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, ViewChildren, QueryList } from "@angular/core";
 import { BarcodeModel } from "../barcode.model";
 
 @Component({
@@ -7,25 +7,24 @@ import { BarcodeModel } from "../barcode.model";
   styleUrls: ["./barcode.component.css"]
 })
 export class BarcodeComponent implements AfterViewInit {
-  @ViewChild("progress") progress: ElementRef;
+  @ViewChildren('digits')digits:QueryList<ElementRef>;
+  progress=35;
   barcode: BarcodeModel;
   constructor() {
     this.barcode = new BarcodeModel();
   }
 
-  ngAfterViewInit() {
-    this.animate(this.progress.nativeElement);
+  onModelChange(){
+    const index = Math.floor(this.digits.length/100*this.progress);
+    this.digits.forEach((digit, i)=>{
+      const el:HTMLElement = digit.nativeElement;
+      if(i < index && el.classList.contains('d-1')){
+        el.style.background = '#C51718'
+      }
+    })
   }
 
-  animate(el:HTMLElement){
-let currentVal = 0;
-    function step(){
-      currentVal ++;
-      el.style.width = currentVal + '%';
-      if(currentVal<100){
-        window.requestAnimationFrame(step);
-      }
-    }
-    step();
+  ngAfterViewInit() {
+   this.onModelChange();
   }
 }
