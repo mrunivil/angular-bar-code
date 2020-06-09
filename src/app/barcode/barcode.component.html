@@ -1,0 +1,4 @@
+<div class="wrapper">
+  <div [ngClass]="'d-' + digit" class="digit" *ngFor="let digit of barcode.toBinary()"></div>
+  <div class="background" #progress></div>
+</div>
