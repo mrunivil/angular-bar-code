@@ -1,8 +1,67 @@
+:host{
+  --padding: 2rem;
+  --size:2rem;
+}
 .wrapper{
   display:flex;
   position:relative;
   max-width:250px;
+  padding:4rem;
+  margin:0 auto;
 }
+#upper-left{
+  position:absolute;
+  top:var(--padding);;
+  left:var(--padding);
+}
+#upper-left::after,
+#upper-left::before,
+#lower-left::after,
+#lower-left::before,
+#upper-right::after,
+#upper-right::before,
+#lower-right::after,
+#lower-right::before
+{
+  content:'';
+  position:absolute;
+  background:#000000;
+  z-index:556;
+}
+#upper-left::after,
+#upper-left::before{
+  top:0;
+  left:0;
+}
+#lower-left::after,
+#lower-left::before{
+  bottom:0;
+  left:0;
+}
+#upper-right::after,
+#upper-right::before{
+  top:0;
+  right:0;
+}
+#lower-right::after,
+#lower-right::before{
+  bottom:0;
+  left:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .background{
   position:absolute;
   top:0;

@@ -37,7 +37,6 @@ export class BarcodeModel {
       );
     }
     ret = ret.concat([1, 0, 1]);
-    console.dir(ret);
     return ret;
   }
   digitToBinary(digit: number) {
