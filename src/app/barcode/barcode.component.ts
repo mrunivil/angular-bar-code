@@ -16,7 +16,7 @@ import { BarcodeModel } from "../barcode.model";
 })
 export class BarcodeComponent implements AfterViewInit {
   @ViewChildren("digits") digits: QueryList<ElementRef>;
-  progress = 35;
+  progressValue = 35;
   barcode: BarcodeModel;
   constructor() {
     this.barcode = new BarcodeModel();
@@ -24,7 +24,7 @@ export class BarcodeComponent implements AfterViewInit {
 
   onModelChange() {
     const tmp = this.digits;
-    const tmpP = this.progress;
+    const tmpP = this.progressValue;
     window.requestAnimationFrame(() => {
       const index = Math.floor((tmp.length / 100) * tmpP);
       tmp.forEach((digit, i) => {
